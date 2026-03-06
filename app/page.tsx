@@ -30,7 +30,12 @@ async function getHeroPhotos(): Promise<HeroPhoto[]> {
 }
 
 export default async function Home() {
-  const photos = await getHeroPhotos()
+  let photos: HeroPhoto[] = []
+  try {
+    photos = await getHeroPhotos()
+  } catch {
+    // 构建或运行时 Sanity 不可用时使用空列表，页面照常渲染
+  }
 
   const leftPhotos = photos.filter((_, index) => index % 2 === 0)
   const rightPhotos = photos.filter((_, index) => index % 2 === 1)
