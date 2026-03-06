@@ -29,7 +29,12 @@ async function getGalleryPhotos(): Promise<GalleryPhoto[]> {
 }
 
 export default async function GalleryPage() {
-  const photos = await getGalleryPhotos()
+  let photos: GalleryPhoto[] = []
+  try {
+    photos = await getGalleryPhotos()
+  } catch {
+    // 构建时 Sanity 不可用（如未配置 env）则传空列表，页面照常渲染
+  }
 
   return <GalleryClient photos={photos} />
 }

@@ -47,7 +47,12 @@ export default async function PhotoPage({
   params: Promise<{id: string}>
 }) {
   const {id} = await params
-  const photo = await getPhoto(id)
+  let photo: PhotoDetail | null = null
+  try {
+    photo = await getPhoto(id)
+  } catch {
+    // 构建或运行时 Sanity 不可用时视为找不到
+  }
 
   if (!photo) {
     return (
