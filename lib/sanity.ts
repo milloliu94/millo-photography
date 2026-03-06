@@ -17,7 +17,8 @@ export const client = createClient({
 
 const builder = imageUrlBuilder({projectId, dataset})
 
-export function urlFor(source: unknown) {
+// 宽松一点的类型声明，兼容多种 Sanity 图片源
+export function urlFor(source: any) {
   return builder.image(source)
 }
 

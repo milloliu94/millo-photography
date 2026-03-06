@@ -72,7 +72,7 @@ export function MasonryGallery({initialPhotos, locations}: MasonryGalleryProps) 
       {/* 瀑布流布局 */}
       <section className="columns-1 gap-4 sm:columns-2 lg:columns-3">
         {filteredPhotos.map((photo) =>
-          photo.image?.asset?.url ? (
+          photo.image?.url ? (
             <button
               key={photo._id}
               type="button"
@@ -82,7 +82,7 @@ export function MasonryGallery({initialPhotos, locations}: MasonryGalleryProps) 
               <div className="relative w-full">
                 {/* 使用普通 <img> 避免 masonry 高度问题 */}
                 <img
-                  src={photo.image.asset.url}
+                  src={photo.image.url}
                   alt={photo.title || photo.locationTag || 'photo'}
                   className="h-auto w-full cursor-zoom-in object-cover transition-transform duration-300 hover:scale-[1.01]"
                   loading="lazy"
@@ -94,7 +94,7 @@ export function MasonryGallery({initialPhotos, locations}: MasonryGalleryProps) 
       </section>
 
       {/* 巨幕模式弹窗 */}
-      {activePhoto && activePhoto.image?.asset?.url && (
+      {activePhoto && activePhoto.image?.url && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
           onClick={() => setActivePhoto(null)}
@@ -119,7 +119,7 @@ export function MasonryGallery({initialPhotos, locations}: MasonryGalleryProps) 
             <div className="flex flex-1 flex-col gap-4 lg:flex-row">
               <div className="relative flex-1 items-center justify-center">
                 <Image
-                  src={activePhoto.image.asset.url}
+                  src={activePhoto.image.url}
                   alt={activePhoto.title || activePhoto.locationTag || 'photo'}
                   fill
                   sizes="100vw"
@@ -132,7 +132,7 @@ export function MasonryGallery({initialPhotos, locations}: MasonryGalleryProps) 
                 <h2 className="mb-2 text-[11px] font-semibold tracking-wide text-zinc-100">
                   EXIF 信息
                 </h2>
-                <ExifList exif={activePhoto.image.asset.metadata?.exif} />
+                <ExifList exif={activePhoto.image.metadata?.exif} />
               </aside>
             </div>
           </div>

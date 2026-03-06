@@ -6,7 +6,7 @@ import {motion} from 'framer-motion'
 
 const textVariants = {
   hidden: {opacity: 0, y: 40},
-  visible: {opacity: 1, y: 0, transition: {duration: 0.8, ease: 'easeOut'}},
+  visible: {opacity: 1, y: 0, transition: {duration: 0.8, ease: 'easeOut' as const}},
 }
 
 const imageVariants = {
@@ -14,7 +14,7 @@ const imageVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {duration: 0.8, ease: 'easeOut', delay: 0.15},
+    transition: {duration: 0.8, ease: 'easeOut' as const, delay: 0.15},
   },
 }
 

@@ -6,8 +6,10 @@ export default async function AboutPage() {
     `*[_type == "photo" && theme == "avatar" && defined(image.asset)][0]{image}`,
   )
 
-  const avatarUrl =
-    avatar?.image && urlFor(avatar.image).width(600).height(600).fit('crop').url()
+  const url =
+    avatar?.image ? urlFor(avatar.image).width(600).height(600).fit('crop').url() : null
+  const avatarUrl: string =
+    typeof url === 'string' ? url : '/about-main-portrait.jpg'
 
-  return <AboutClient avatarUrl={avatarUrl ?? '/about-main-portrait.jpg'} />
+  return <AboutClient avatarUrl={avatarUrl} />
 }
