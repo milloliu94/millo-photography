@@ -91,7 +91,7 @@ export function AboutClient({avatarUrl}: {avatarUrl: string}) {
                 <span className="mr-2 align-middle" aria-hidden="true">
                   ✉️
                 </span>
-                <span className="align-middle">millo94@gmail.com</span>
+                <span className="align-middle">milloliu94@gmail.com</span>
               </p>
             </div>
           </motion.div>
