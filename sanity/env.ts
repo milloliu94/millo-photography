@@ -12,6 +12,10 @@ function sanitizeProjectId(raw: string | undefined): string {
   return match ? match[0] : 'placeholder'
 }
 
-export const projectId = sanitizeProjectId(
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+// 优先用环境变量；若 Vercel 读不到则用兜底，保证线上能出图（Sanity projectId 可公开）
+const FALLBACK_PROJECT_ID = 'c2urbrb9'
+const fromEnv = sanitizeProjectId(
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID_PROJECT
 )
+export const projectId = fromEnv === 'placeholder' ? FALLBACK_PROJECT_ID : fromEnv
