@@ -1,6 +1,8 @@
 import {client} from '@/lib/sanity'
 import {GalleryClient, type GalleryPhoto} from './GalleryClient'
 
+export const dynamic = 'force-dynamic'
+
 async function getGalleryPhotos(): Promise<GalleryPhoto[]> {
   const photos = await client.fetch<GalleryPhoto[]>(
     `*[_type == "photo" && defined(image.asset) && theme != "avatar"] | order(shootingDate desc){

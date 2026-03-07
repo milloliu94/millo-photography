@@ -3,6 +3,8 @@ import Image from 'next/image'
 import {client} from '@/sanity/lib/client'
 import {urlFor} from '@/lib/sanity'
 
+export const dynamic = 'force-dynamic'
+
 type HeroPhoto = {
   _id: string
   title?: string

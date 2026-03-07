@@ -1,6 +1,8 @@
 import {client, urlFor} from '@/lib/sanity'
 import {AboutClient} from './AboutClient'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AboutPage() {
   let avatarUrl: string = '/about-main-portrait.jpg'
 
