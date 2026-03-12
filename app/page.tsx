@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {client} from '@/sanity/lib/client'
 import {urlFor} from '@/lib/sanity'
+import {ThemeToggle} from './ThemeToggle'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,14 +54,17 @@ export default async function Home() {
           >
             MILLO&apos;S PHOTOGRAPHY
           </Link>
-          <nav className="flex gap-6 text-xs uppercase tracking-[0.25em] text-zinc-600">
-            <Link href="/gallery" className="hover:text-black">
-              Works
-            </Link>
-            <Link href="/about" className="hover:text-black">
-              About
-            </Link>
-          </nav>
+          <div className="flex items-center gap-4">
+            <nav className="flex gap-6 text-xs uppercase tracking-[0.25em] text-zinc-600">
+              <Link href="/gallery" className="hover:text-black">
+                Works
+              </Link>
+              <Link href="/about" className="hover:text-black">
+                About
+              </Link>
+            </nav>
+            <ThemeToggle />
+          </div>
         </div>
       </header>
 
@@ -112,10 +116,10 @@ export default async function Home() {
                         <Image
                           src={src}
                           alt={photo.title || photo.locationTag || 'photo'}
-                          width={1000}
-                          height={700}
+                          width={1200}
+                          height={900}
                           className="h-auto w-full object-cover"
-                          sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 60vw"
                         />
                       </div>
                     )
@@ -140,10 +144,10 @@ export default async function Home() {
                         <Image
                           src={src}
                           alt={photo.title || photo.locationTag || 'photo'}
-                          width={1000}
-                          height={700}
+                          width={1200}
+                          height={900}
                           className="h-auto w-full object-cover"
-                          sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
+                          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 60vw"
                         />
                       </div>
                     )
