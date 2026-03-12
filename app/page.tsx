@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {client} from '@/sanity/lib/client'
 import {urlFor} from '@/lib/sanity'
-import {ThemeToggle} from './ThemeToggle'
 
 export const dynamic = 'force-dynamic'
 
@@ -44,7 +43,7 @@ export default async function Home() {
   const rightPhotos = photos.filter((_, index) => index % 2 === 1)
 
   return (
-    <div className="page-root h-screen overflow-hidden">
+    <div className="h-screen overflow-hidden bg-white text-black">
       {/* 顶部导航 */}
       <header className="border-b">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -54,17 +53,14 @@ export default async function Home() {
           >
             MILLO&apos;S PHOTOGRAPHY
           </Link>
-          <div className="flex items-center gap-4">
-            <nav className="flex gap-6 text-xs uppercase tracking-[0.25em] text-zinc-600">
-              <Link href="/gallery" className="hover:text-black">
-                Works
-              </Link>
-              <Link href="/about" className="hover:text-black">
-                About
-              </Link>
-            </nav>
-            <ThemeToggle />
-          </div>
+          <nav className="flex gap-6 text-xs uppercase tracking-[0.25em] text-zinc-600">
+            <Link href="/gallery" className="hover:text-black">
+              Works
+            </Link>
+            <Link href="/about" className="hover:text-black">
+              About
+            </Link>
+          </nav>
         </div>
       </header>
 

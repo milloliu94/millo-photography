@@ -56,7 +56,7 @@ export default async function PhotoPage({
 
   if (!photo) {
     return (
-      <main className="page-root flex min-h-screen items-center justify-center text-sm text-zinc-500">
+      <main className="flex min-h-screen items-center justify-center bg-white text-sm text-zinc-500">
         <div>找不到这张照片。</div>
       </main>
     )
@@ -67,7 +67,7 @@ export default async function PhotoPage({
   const model = photo.cameraModel || photo.image?.metadata?.exif?.Model
 
   return (
-    <main className="page-root flex min-h-screen">
+    <main className="flex min-h-screen bg-white text-black">
       {/* 左侧大图：保持原始宽高比例，横图不再被裁成竖图 */}
       <section className="flex min-h-screen flex-1 items-center justify-center px-6 py-10 sm:px-10">
         <div className="w-full max-w-4xl">
