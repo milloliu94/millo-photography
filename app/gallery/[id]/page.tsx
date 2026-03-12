@@ -68,14 +68,14 @@ export default async function PhotoPage({
 
   return (
     <main className="flex min-h-screen bg-white text-black">
-      {/* 左侧大图 */}
+      {/* 左侧大图：保持原始宽高比例，横图不再被裁成竖图 */}
       <section className="flex min-h-screen flex-1 items-center justify-center px-6 py-10 sm:px-10">
-        <div className="h-[80vh] w-full max-w-[60vh]">
+        <div className="w-full max-w-4xl">
           {src && (
             <img
               src={src}
               alt={photo.title || photo.locationTag || 'photo'}
-              className="h-full w-full object-cover shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+              className="w-full h-auto max-h-[80vh] object-contain shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
             />
           )}
         </div>
