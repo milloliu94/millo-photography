@@ -20,7 +20,7 @@ const imageVariants = {
 
 export function AboutClient({avatarUrl}: {avatarUrl: string}) {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-black">
+    <div className="page-root flex min-h-screen flex-col">
       {/* Navbar */}
       <header className="border-b bg-white">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">

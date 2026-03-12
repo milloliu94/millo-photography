@@ -44,7 +44,7 @@ export default async function Home() {
   const rightPhotos = photos.filter((_, index) => index % 2 === 1)
 
   return (
-    <div className="h-screen overflow-hidden bg-white text-black">
+    <div className="page-root h-screen overflow-hidden">
       {/* 顶部导航 */}
       <header className="border-b">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
